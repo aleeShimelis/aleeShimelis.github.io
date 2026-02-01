@@ -1,11 +1,11 @@
 // Small UX enhancements: year, keyboard jumps, theme toggle
-(function(){
+(function () {
   const yearEl = document.getElementById('y');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  function jumpTo(id){
+  function jumpTo(id) {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   // Keyboard: J = projects, T = top
@@ -22,10 +22,10 @@
   const btn = document.getElementById('themeToggle');
   const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
 
-  function applyTheme(theme){
+  function applyTheme(theme) {
     const next = theme === 'light' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
-    if (btn){
+    if (btn) {
       btn.setAttribute('aria-pressed', String(next === 'dark'));
       const label = next === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
       btn.setAttribute('aria-label', label);
@@ -52,40 +52,41 @@
       const el = document.querySelector(hash);
       if (!el) return;
       e.preventDefault();
-      el.scrollIntoView({behavior:'smooth', block:'start'});
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
-  // Map fallback handling (start timer after setting real src)
+  // Map fallback handling
   const mapIframe = document.getElementById('map-iframe');
   const mapFallback = document.getElementById('map-fallback');
   let mapTimer;
-  function startMapTimer(){
+
+  function startMapTimer() {
     if (mapTimer) clearTimeout(mapTimer);
-    mapTimer = setTimeout(() => { if (mapFallback) mapFallback.hidden = false; }, 4000);
-  }
-  if (mapIframe && mapFallback){
-    mapIframe.addEventListener('load', () => { if (mapTimer) clearTimeout(mapTimer); });
-    mapIframe.addEventListener('error', () => { if (mapTimer) clearTimeout(mapTimer); if (mapFallback) mapFallback.hidden = false; });
+    mapTimer = setTimeout(() => {
+      if (mapFallback) mapFallback.hidden = false;
+    }, 4000);
   }
 
-//   // Set iframe/map links with a URL-safe token
-//   try {
-//     const rawToken = "aZ7!kP9@M2x#QbR$4eL^8sT&yCm0W*H?"; // replace when rotating tokens
-//     const url = "https://amkgeospatial.com/webmap_Amibara/embed/?token=" + encodeURIComponent(rawToken);
-//     if (mapIframe){ mapIframe.src = url; startMapTimer(); }
-//     document.querySelectorAll('a[data-map-link="true"]').forEach(a => { a.href = url; });
-//   } catch (_) {}
-// })();
+  if (mapIframe && mapFallback) {
+    mapIframe.addEventListener('load', () => {
+      if (mapTimer) clearTimeout(mapTimer);
+    });
+    mapIframe.addEventListener('error', () => {
+      if (mapTimer) clearTimeout(mapTimer);
+      if (mapFallback) mapFallback.hidden = false;
+    });
+  }
 
-(function () {
-      const mapUrl = "https://amkgeospatial.com/webmap_Amibara/embed/?token=eyJleHAiOjE3Njk5Njc2OTQsInNjb3BlIjoicmVhZG9ubHkifQ.p1acCwTvuGwFU3iWRV-ZHc8exFxNLK_9wAeT6BlWrjg";
+  // Set iframe/map links with the verified working token URL
+  const mapUrl = "https://amkgeospatial.com/webmap_Amibara/embed/?token=eyJleHAiOjE3Njk5NjkwNTEsInNjb3BlIjoicmVhZG9ubHkifQ.5b_KJe9oPPTZxHh4L7LTjTbtswnDy4ohYUlNwO2FUZY";
 
-      const iframe = document.getElementById("map-iframe");
-      if (iframe) iframe.src = mapUrl;
+  if (mapIframe) {
+    mapIframe.src = mapUrl;
+    startMapTimer();
+  }
 
-      // Update all links marked with data-map-link="true"
-      document.querySelectorAll('[data-map-link="true"]').forEach(a => {
-        a.href = mapUrl;
-      });
-      })(); }());
+  document.querySelectorAll('a[data-map-link="true"]').forEach(a => {
+    a.href = mapUrl;
+  });
+})();
