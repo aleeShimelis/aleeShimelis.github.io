@@ -182,6 +182,7 @@ section>header p{margin:0; color:var(--muted)}
 /* Projects grid */
 .grid{display:grid; gap:16px}
 .cards{grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))}
+.cards > .project--wide{ grid-column: 1 / -1; }
 .twoCols{display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))}
 .project__header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 6px}
 .project__actions{display:flex; gap:8px}
