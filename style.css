@@ -195,6 +195,20 @@ section>header p{margin:0; color:var(--muted)}
 .embed__fallback{margin-top:10px; padding:12px; text-align:center; border:1px dashed var(--line); border-radius:12px}
 .embed__fallback[hidden]{display:none!important}
 
+/* Screenshot gallery */
+.gallery{display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top:12px}
+.gallery__item{border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--panel); box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.gallery__item img{display:block; width:100%; aspect-ratio:16/9; object-fit:cover; filter:saturate(1.02)}
+.gallery__item figcaption{padding:10px 12px; color:var(--muted); font-size:14px}
+
+/* Horizontal scrolling gallery for Project One */
+.gallery--horizontal{display:flex; gap:12px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory}
+.gallery--horizontal .gallery__item{flex:0 0 auto; min-width: clamp(420px, 60vw, 880px); scroll-snap-align:start}
+.gallery--horizontal .gallery__item img{aspect-ratio:21/9}
+@media (max-width:720px){
+  .gallery--horizontal .gallery__item{min-width: 320px}
+}
+
 /* Footer */
 footer{margin-top:36px; color:var(--muted); font-size:14px; display:grid; gap:8px; justify-items:center; text-align:center}
 .hint{opacity:.9}
