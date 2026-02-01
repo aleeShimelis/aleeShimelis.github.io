@@ -56,19 +56,24 @@
     });
   });
 
-  // If the Hostinger map can't be embedded (X-Frame-Options/CSP), show a fallback link
+  // Map fallback handling (start timer after setting real src)
   const mapIframe = document.getElementById('map-iframe');
   const mapFallback = document.getElementById('map-fallback');
-  if (mapIframe && mapFallback){
-    let timer = setTimeout(() => {
-      mapFallback.hidden = false;
-    }, 4000);
-    mapIframe.addEventListener('load', () => {
-      clearTimeout(timer);
-    });
-    mapIframe.addEventListener('error', () => {
-      clearTimeout(timer);
-      mapFallback.hidden = false;
-    });
+  let mapTimer;
+  function startMapTimer(){
+    if (mapTimer) clearTimeout(mapTimer);
+    mapTimer = setTimeout(() => { if (mapFallback) mapFallback.hidden = false; }, 4000);
   }
+  if (mapIframe && mapFallback){
+    mapIframe.addEventListener('load', () => { if (mapTimer) clearTimeout(mapTimer); });
+    mapIframe.addEventListener('error', () => { if (mapTimer) clearTimeout(mapTimer); if (mapFallback) mapFallback.hidden = false; });
+  }
+
+  // Set iframe/map links with a URL-safe token
+  try {
+    const rawToken = "aZ7!kP9@M2x#QbR$4eL^8sT&yCm0W*H?"; // replace when rotating tokens
+    const url = "https://amkgeospatial.com/webmap_Amibara/embed/?token=" + encodeURIComponent(rawToken);
+    if (mapIframe){ mapIframe.src = url; startMapTimer(); }
+    document.querySelectorAll('a[data-map-link="true"]').forEach(a => { a.href = url; });
+  } catch (_) {}
 })();
