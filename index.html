@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alazar Shimelis - Portfolio</title>
+  <meta name="description" content="Alazar Shimelis - data-driven interfaces, web mapping, and practical projects.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="style.css" as="style">
+  <link rel="preload" href="main.js" as="script">
+  <meta name="theme-color" content="#0f1115">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no">
+</head>
+<body>
+  <div class="wrap" id="top">
+    <div class="top">
+      <a class="brand" href="#top" aria-label="Home">
+        <div>
+          <strong>Portfolio Website</strong>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a class="chip" href="#projects">Projects</a>
+        <a class="chip" href="#experience">Experience</a>
+        <a class="chip" href="#contact">Contact</a>
+        <button class="chip icon-btn" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle theme" title="Toggle theme">
+          <span class="sr-only">Toggle color theme</span>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2m0 16v2M22 12h-2M4 12H2M17 7l-1.4 1.4M8.4 15.6L7 17m0-10l1.4 1.4M15.6 15.6L17 17"/>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <section id="summary" class="summary card">
+      <div class="summary__layout">
+        <div class="summary__right">
+          <h1 class="summary__title">Alazar Shimelis</h1>
+          <p class="subtitle">GIS &amp; Frontend</p>
+          <p class="lead" style="margin-top:8px">Write a concise, 2-3 sentence summary about your skills, strengths, and what you enjoy building. Keep it clear and outcome-focused.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <header>
+        <h2>Projects</h2>
+        <p>Selected work and experiments.</p>
+      </header>
+
+      <div class="grid cards">
+        <article class="card project">
+          <div class="project__header">
+            <h3>Project One</h3>
+            <div class="project__actions">
+              <a class="chip" href="[LIVE_DEMO_URL_1]" target="_blank" rel="noreferrer">Live</a>
+              <a class="chip" href="[GITHUB_REPO_URL_1]" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </div>
+          <p class="note">Brief description of the project and the problem it solves.</p>
+          <div class="embed">
+            <div class="embed__frame">
+              <iframe title="Demo 1" src="[LIVE_DEMO_URL_1]" loading="lazy" referrerpolicy="no-referrer" allowfullscreen></iframe>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project" id="interactive-map">
+          <div class="project__header">
+            <h3>Interactive Map Showcase</h3>
+            <div class="project__actions">
+              <a class="chip" href="https://maps.amkgeospatial.com/Webmap_Amibara/embed/?token=aZ7!kP9@M2x#QbR$4eL^8sT&yCm0W*H?" target="_blank" rel="noreferrer">Live</a>
+              <a class="chip" href="[GITHUB_REPO_URL_2]" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </div>
+          <p class="note">Interactive layers, filters, and responsive UX for non-technical users.</p>
+          <div class="embed">
+            <div class="embed__frame">
+              <iframe id="map-iframe" title="Interactive Map" src="https://maps.amkgeospatial.com/Webmap_Amibara/embed/?token=aZ7!kP9@M2x#QbR$4eL^8sT&yCm0W*H?" loading="lazy" referrerpolicy="no-referrer" allowfullscreen></iframe>
+            </div>
+            <div id="map-fallback" class="embed__fallback" hidden>
+              <p class="note" style="margin:0 0 8px">Open the full map:</p>
+              <a class="btn btn--ghost" href="https://maps.amkgeospatial.com/Webmap_Amibara/embed/?token=aZ7!kP9@M2x#QbR$4eL^8sT&yCm0W*H?" target="_blank" rel="noreferrer">Open Map</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <header>
+        <h2>Experience</h2>
+        <p>Field data, maps, and usable interfaces.</p>
+      </header>
+
+      <div class="twoCols">
+        <div class="card">
+          <h3>Environiqa Engineering - GIS &amp; Web Mapping (8 months)</h3>
+          <ul class="note">
+            <li>Collected on-site data using QField, KoboCollect, and 360&deg; cameras</li>
+            <li>Cleaned and validated datasets; produced reports and map outputs</li>
+            <li>Built static maps and interactive web maps for non‑technical stakeholders</li>
+            <li>Worked with evolving requirements and incorporated feedback quickly</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>What I'm improving now</h3>
+          <ul class="note">
+            <li>Component-based frontend patterns (React/Vue basics)</li>
+            <li>Clean code + documentation habits</li>
+            <li>PostgreSQL + PostGIS workflows for spatial queries</li>
+            <li>Deploying demos (GitHub Pages / Netlify / Vercel)</li>
+          </ul>
+          <p class="note" style="margin-top:10px">
+            I'm comfortable learning from feedback and revising work multiple times - iteration is part of quality.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <header>
+        <h2>Contact</h2>
+        <p>Best way to reach me: email.</p>
+      </header>
+
+      <div class="card">
+        <p><b>Email:</b> <a href="mailto:[email@example.com]">[email@example.com]</a></p>
+        <p><b>LinkedIn:</b> <a href="[LINK_TO_LINKEDIN]" target="_blank" rel="noreferrer">[linkedin.com/in/username]</a></p>
+        <p><b>GitHub:</b> <a href="[LINK_TO_GITHUB]" target="_blank" rel="noreferrer">[github.com/username]</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <div>&copy; <span id="y"></span> Alazar Shimelis. Built with plain HTML/CSS.</div>
+      <div class="hint">Tip: keep links working; remove anything confidential from client work.</div>
+    </footer>
+
+  </div>
+  <script src="main.js" defer></script>
+</body>
+</html>
