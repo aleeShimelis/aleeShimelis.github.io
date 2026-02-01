@@ -69,11 +69,23 @@
     mapIframe.addEventListener('error', () => { if (mapTimer) clearTimeout(mapTimer); if (mapFallback) mapFallback.hidden = false; });
   }
 
-  // Set iframe/map links with a URL-safe token
-  try {
-    const rawToken = "aZ7!kP9@M2x#QbR$4eL^8sT&yCm0W*H?"; // replace when rotating tokens
-    const url = "https://amkgeospatial.com/webmap_Amibara/embed/?token=" + encodeURIComponent(rawToken);
-    if (mapIframe){ mapIframe.src = url; startMapTimer(); }
-    document.querySelectorAll('a[data-map-link="true"]').forEach(a => { a.href = url; });
-  } catch (_) {}
-})();
+//   // Set iframe/map links with a URL-safe token
+//   try {
+//     const rawToken = "aZ7!kP9@M2x#QbR$4eL^8sT&yCm0W*H?"; // replace when rotating tokens
+//     const url = "https://amkgeospatial.com/webmap_Amibara/embed/?token=" + encodeURIComponent(rawToken);
+//     if (mapIframe){ mapIframe.src = url; startMapTimer(); }
+//     document.querySelectorAll('a[data-map-link="true"]').forEach(a => { a.href = url; });
+//   } catch (_) {}
+// })();
+
+(function () {
+      const mapUrl = "https://amkgeospatial.com/webmap_Amibara/embed/?token=eyJleHAiOjE3Njk5Njc2OTQsInNjb3BlIjoicmVhZG9ubHkifQ.p1acCwTvuGwFU3iWRV-ZHc8exFxNLK_9wAeT6BlWrjg";
+
+      const iframe = document.getElementById("map-iframe");
+      if (iframe) iframe.src = mapUrl;
+
+      // Update all links marked with data-map-link="true"
+      document.querySelectorAll('[data-map-link="true"]').forEach(a => {
+        a.href = mapUrl;
+      });
+      })(); }());

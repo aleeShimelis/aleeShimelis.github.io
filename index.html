@@ -62,8 +62,8 @@
           <div class="project__header">
             <h3>Project One</h3>
             <div class="project__actions">
-              <a class="chip" href="[LIVE_DEMO_URL_1]" target="_blank" rel="origin-when-cross-origin">Live</a>
-              <a class="chip" href="[GITHUB_REPO_URL_1]" target="_blank" rel="origin-when-cross-origin">Code</a>
+              <a class="chip" href="[LIVE_DEMO_URL_1]" target="_blank" rel="noopener noreferrer">Live</a>
+              <a class="chip" href="[GITHUB_REPO_URL_1]" target="_blank" rel="noopener noreferrer">Code</a>
             </div>
           </div>
           <p class="note">Brief description of the project and the problem it solves.</p>
@@ -78,8 +78,8 @@
           <div class="project__header">
             <h3>Interactive Map Showcase</h3>
             <div class="project__actions">
-              <a class="chip" data-map-link="true" href="https://amkgeospatial.com/webmap_Amibara/embed/?token=eyJleHAiOjE3Njk5Njc2OTQsInNjb3BlIjoicmVhZG9ubHkifQ.p1acCwTvuGwFU3iWRV-ZHc8exFxNLK_9wAeT6BlWrjg" target="_blank" rel="origin-when-cross-origin">Live</a>
-              <a class="chip" href="[GITHUB_REPO_URL_2]" target="_blank" rel="origin-when-cross-origin">Code</a>
+              <a class="chip" data-map-link="true" href="https://amkgeospatial.com/webmap_Amibara/embed/?token=eyJleHAiOjE3Njk5Njc2OTQsInNjb3BlIjoicmVhZG9ubHkifQ.p1acCwTvuGwFU3iWRV-ZHc8exFxNLK_9wAeT6BlWrjg" target="_blank" rel="noopener noreferrer">Live</a>
+              <a class="chip" href="[GITHUB_REPO_URL_2]" target="_blank" rel="noopener noreferrer">Code</a>
             </div>
           </div>
           <p class="note">Interactive layers, filters, and responsive UX for non-technical users.</p>
@@ -90,12 +90,12 @@
               height="520"
               style="border:1px solid rgba(0,0,0,.15); border-radius:14px;"
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
+              referrerpolicy="origin-when-cross-origin"
               title="Webmap  Amibara">
             </iframe>
             <div id="map-fallback" class="embed__fallback" hidden>
               <p class="note" style="margin:0 0 8px">Open the full map:</p>
-              <a class="btn btn--ghost" data-map-link="true" href="https://amkgeospatial.com/webmap_Amibara/embed/?token=eyJleHAiOjE3Njk5Njc2OTQsInNjb3BlIjoicmVhZG9ubHkifQ.p1acCwTvuGwFU3iWRV-ZHc8exFxNLK_9wAeT6BlWrjg" target="_blank" rel="noreferrer">Open Map</a>
+              <a class="btn btn--ghost" data-map-link="true" href="https://amkgeospatial.com/webmap_Amibara/embed/?token=eyJleHAiOjE3Njk5Njc2OTQsInNjb3BlIjoicmVhZG9ubHkifQ.p1acCwTvuGwFU3iWRV-ZHc8exFxNLK_9wAeT6BlWrjg" target="_blank" rel="noopener noreferrer">Open Map</a>
             </div>
           </div>
         </article>
@@ -155,11 +155,9 @@
   </div>
 
   <script>
-    // --- Map embed: URL-encode token so special chars like # and & don't break it ---
+
     (function () {
-      const base = "https://amkgeospatial.com/webmap_Amibara/embed/?token=";
-      const rawToken = "aZ7!kP9@M2x#QbR$4eL^8sT&yCm0W*H?";
-      const mapUrl = base + encodeURIComponent(rawToken);
+      const mapUrl = "https://amkgeospatial.com/webmap_Amibara/embed/?token=eyJleHAiOjE3Njk5Njc2OTQsInNjb3BlIjoicmVhZG9ubHkifQ.p1acCwTvuGwFU3iWRV-ZHc8exFxNLK_9wAeT6BlWrjg";
 
       const iframe = document.getElementById("map-iframe");
       if (iframe) iframe.src = mapUrl;
