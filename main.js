@@ -79,7 +79,7 @@
   }
 
   // Set iframe/map links with the verified working token URL
-  const mapUrl = "https://amkgeospatial.com/webmap_Amibara/embed/?token=eyJleHAiOjE3NzIxMzQ3MDAsInNjb3BlIjoicmVhZG9ubHkifQ.rZ_B__ziYwihn24E4SSYMsa08b4_TCxadMAX8Kqroo0";
+  const mapUrl = "https://amkgeospatial.com/webmap_Amibara/embed/?token=eyJleHAiOjE3NzIxMzUwNTIsInNjb3BlIjoicmVhZG9ubHkifQ.vzbZ-IivpvMUuRPuXYl55vbokt1HJg4r8VST6EPaJB4";
 
   if (mapIframe) {
     mapIframe.src = mapUrl;
